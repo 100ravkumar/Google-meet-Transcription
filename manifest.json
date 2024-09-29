@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Google Meet Real-time Transcription",
+  "version": "1.0",
+  "description": "A Chrome extension to capture live transcription from Google Meet.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "tabs"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://meet.google.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
