@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Real-time Transcription</title>
+  <style>
+    body { font-family: Arial, sans-serif; }
+    #transcript { white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <h1>Transcription</h1>
+  <div id="transcript">Loading...</div>
+
+  <script>
+    setInterval(() => {
+      chrome.storage.local.get('transcript', (result) => {
+        document.getElementById('transcript').innerText = result.transcript || "No transcript yet.";
+      });
+    }, 2000);
+  </script>
+</body>
+</html>
